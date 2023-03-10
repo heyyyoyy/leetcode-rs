@@ -24,7 +24,27 @@ use std::cell::RefCell;
 struct Solution;
 
 impl Solution {
-    pub fn invert_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+    fn swap_nodes(root: &mut Option<Rc<RefCell<TreeNode>>>) {
+        if let Some(r) = root {
+            let TreeNode {
+                left, 
+                right, 
+                ..
+            } = &mut *r.borrow_mut();
+            Solution::swap_nodes(left);
+            Solution::swap_nodes(right);
+            std::mem::swap(left, right);
+        }
+    }
+
+    // swap nodes with std::mem::swap
+    pub fn invert_tree(mut root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+        Solution::swap_nodes(&mut root);
+        root
+    }
+
+    // swap with create new root
+    pub fn invert_tree_new_root(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
         if let Some(r) = root {
             let r = r.borrow();
             let mut new_root = TreeNode::new(r.val);
