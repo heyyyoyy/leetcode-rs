@@ -1,7 +1,8 @@
-use std::collections::VecDeque;
 
+#[derive(Default, Debug)]
 struct MyQueue {
-    stack: VecDeque<i32>
+    front: Vec<i32>,
+    back: Vec<i32>
 }
 
 
@@ -12,23 +13,33 @@ struct MyQueue {
 impl MyQueue {
 
     fn new() -> Self {
-        Self { stack: VecDeque::new() }
+        Self::default()
     }
     
     fn push(&mut self, x: i32) {
-        self.stack.push_back(x);
+        self.back.push(x);
     }
     
     fn pop(&mut self) -> i32 {
-        self.stack.pop_front().unwrap()
+        if self.front.is_empty() {
+            while let Some(val) = self.back.pop() {
+                self.front.push(val);
+            }
+        }
+        self.front.pop().unwrap()
     }
     
-    fn peek(&self) -> i32 {
-        *self.stack.get(0).unwrap()
+    fn peek(&mut self) -> i32 {
+        if self.front.is_empty() {
+            while let Some(val) = self.back.pop() {
+                self.front.push(val);
+            }
+        }
+        *self.front.last().unwrap()
     }
     
     fn empty(&self) -> bool {
-        self.stack.is_empty()
+        self.front.is_empty() && self.back.is_empty()
     }
 }
 
