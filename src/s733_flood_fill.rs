@@ -10,7 +10,6 @@ impl Solution {
         let col_len = image[0].len() as i32;
         let pixel_color = image[sr as usize][sc as usize];
         let mut visited = HashSet::new();
-        image[sr as usize][sc as usize] = color;
         let mut queue = VecDeque::new();
         queue.push_back((sr, sc));
         while let Some((row, col)) = queue.pop_front() {
