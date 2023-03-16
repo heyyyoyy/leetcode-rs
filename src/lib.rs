@@ -11,3 +11,4 @@ mod s704_binary_search;
 mod s232_implement_queue_using_stack;
 mod s733_flood_fill;
 mod s235_lca_of_a_bst;
+mod s110_balanced_binary_tree;
