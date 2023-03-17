@@ -21,4 +21,19 @@ impl Solution {
         }
         n
     }
+
+    pub fn first_bad_version_binary_search(&self, n: i32) -> i32 {
+		let mut start = 1;
+        let mut end = n;
+        while start <= end {
+            let mid = start + (end - start) / 2;
+            let is_bad = self.isBadVersion(mid);
+            if is_bad {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+        }
+        end + 1
+    }
 }
