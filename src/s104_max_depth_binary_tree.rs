@@ -23,21 +23,16 @@ use std::cell::RefCell;
 struct Solution;
 
 impl Solution {
-    fn calc_depth(root: Option<Rc<RefCell<TreeNode>>>, depth: i32) -> i32 {
-        let left_depth = if let Some(r) = root.clone() {
-            Solution::calc_depth(r.as_ref().borrow().left.clone(), depth + 1)
-        } else {
-            depth
-        };
-        let right_depth = if let Some(r) = root.clone() {
-            Solution::calc_depth(r.as_ref().borrow().right.clone(), depth + 1)
-        } else {
-            depth
-        };
-        left_depth.max(right_depth)
-    }
-
     pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        Solution::calc_depth(root, 1)
+        root
+        .iter()
+        .map(|node| {
+            Solution::max_depth(
+                node.as_ref().borrow().left.clone()
+            ).max(
+                Solution::max_depth(node.as_ref().borrow().right.clone())
+            ) + 1
+        })
+        .sum()
     }
 }
