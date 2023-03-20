@@ -14,3 +14,4 @@ mod s235_lca_of_a_bst;
 mod s110_balanced_binary_tree;
 mod s278_first_bad_version;
 mod s383_ransom_note;
+mod s104_max_depth_binary_tree;
