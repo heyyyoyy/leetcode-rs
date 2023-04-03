@@ -16,3 +16,4 @@ mod s278_first_bad_version;
 mod s383_ransom_note;
 mod s104_max_depth_binary_tree;
 mod s409_longest_palindrome;
+mod s2_add_two_numbers;
