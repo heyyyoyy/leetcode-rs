@@ -20,16 +20,14 @@ impl Solution {
     }
 }
 
-
-
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
     fn test_search() {
-        assert_eq!(Solution::search(vec![-1,0,3,5,9,12], 9), 4);
-        assert_eq!(Solution::search(vec![-1,0,3,5,9,12], 2), -1);
+        assert_eq!(Solution::search(vec![-1, 0, 3, 5, 9, 12], 9), 4);
+        assert_eq!(Solution::search(vec![-1, 0, 3, 5, 9, 12], 2), -1);
         assert_eq!(Solution::search(vec![5], -5), -1);
     }
 }

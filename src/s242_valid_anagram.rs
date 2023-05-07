@@ -7,9 +7,7 @@ impl Solution {
         if s.len() != t.len() {
             return false;
         }
-        let mut hmap = t
-            .chars()
-            .fold(HashMap::new(), |mut acc, ch| {
+        let mut hmap = t.chars().fold(HashMap::new(), |mut acc, ch| {
             acc.entry(ch).and_modify(|i| *i += 1).or_insert(1);
             acc
         });
@@ -24,12 +22,10 @@ impl Solution {
             } else {
                 return false;
             }
-            
         }
         return true;
     }
 }
-
 
 #[cfg(test)]
 mod tests {
@@ -37,8 +33,17 @@ mod tests {
 
     #[test]
     fn test_valid_anagram() {
-        assert_eq!(Solution::is_anagram("anagram".to_owned(), "nagaram".to_owned()), true);
-        assert_eq!(Solution::is_anagram("car".to_owned(), "rat".to_owned()), false);
-        assert_eq!(Solution::is_anagram("aacc".to_owned(), "ccac".to_owned()), false);
+        assert_eq!(
+            Solution::is_anagram("anagram".to_owned(), "nagaram".to_owned()),
+            true
+        );
+        assert_eq!(
+            Solution::is_anagram("car".to_owned(), "rat".to_owned()),
+            false
+        );
+        assert_eq!(
+            Solution::is_anagram("aacc".to_owned(), "ccac".to_owned()),
+            false
+        );
     }
 }

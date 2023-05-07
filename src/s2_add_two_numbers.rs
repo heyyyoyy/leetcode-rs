@@ -3,24 +3,24 @@ use num::Integer;
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
-  pub val: i32,
-  pub next: Option<Box<ListNode>>
+    pub val: i32,
+    pub next: Option<Box<ListNode>>,
 }
 
 impl ListNode {
-  #[inline]
-  fn new(val: i32) -> Self {
-    ListNode {
-      next: None,
-      val
+    #[inline]
+    fn new(val: i32) -> Self {
+        ListNode { next: None, val }
     }
-  }
 }
 
 struct Solution;
 
 impl Solution {
-    pub fn add_two_numbers(mut l1: Option<Box<ListNode>>, mut l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn add_two_numbers(
+        mut l1: Option<Box<ListNode>>,
+        mut l2: Option<Box<ListNode>>,
+    ) -> Option<Box<ListNode>> {
         let mut root = ListNode::new(0);
         let mut cur = &mut root;
         let mut carry = 0;
@@ -40,7 +40,6 @@ impl Solution {
             let new_node = ListNode::new(rem);
             cur.next = Some(Box::new(new_node));
             cur = cur.next.as_mut().unwrap();
-
         }
         root.next
     }
@@ -67,21 +66,17 @@ mod tests {
             val: 2,
             next: Some(Box::new(ListNode {
                 val: 4,
-                next: Some(Box::new(ListNode {
-                     val: 3, next: None 
-                    }))
-            }))
+                next: Some(Box::new(ListNode { val: 3, next: None })),
+            })),
         }));
         let l2 = Some(Box::new(ListNode {
             val: 5,
             next: Some(Box::new(ListNode {
                 val: 6,
-                next: Some(Box::new(ListNode {
-                     val: 4, next: None 
-                    }))
-            }))
+                next: Some(Box::new(ListNode { val: 4, next: None })),
+            })),
         }));
         let res = Solution::add_two_numbers(l1, l2);
-        assert_eq!(vec![7,0,8], Solution::to_vec(*res.unwrap()))
+        assert_eq!(vec![7, 0, 8], Solution::to_vec(*res.unwrap()))
     }
 }

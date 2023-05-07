@@ -2,7 +2,6 @@ use std::collections::HashMap;
 
 struct Solution;
 
-
 impl Solution {
     pub fn can_construct(ransom_note: String, magazine: String) -> bool {
         let mut hmap = magazine.chars().fold(HashMap::new(), |mut acc, ch| {
@@ -30,7 +29,13 @@ mod tests {
 
     #[test]
     fn test_can_construct() {
-        assert_eq!(Solution::can_construct("aa".to_owned(), "ab".to_owned()), false);
-        assert_eq!(Solution::can_construct("aa".to_owned(), "aab".to_owned()), true);
+        assert_eq!(
+            Solution::can_construct("aa".to_owned(), "ab".to_owned()),
+            false
+        );
+        assert_eq!(
+            Solution::can_construct("aa".to_owned(), "aab".to_owned()),
+            true
+        );
     }
 }

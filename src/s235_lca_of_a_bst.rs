@@ -1,13 +1,13 @@
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
-  pub val: i32,
-  pub left: Option<Rc<RefCell<TreeNode>>>,
-  pub right: Option<Rc<RefCell<TreeNode>>>,
+    pub val: i32,
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
-use std::rc::Rc;
 use std::cell::RefCell;
+use std::rc::Rc;
 
 type Tree = Option<Rc<RefCell<TreeNode>>>;
 struct Solution;
@@ -20,12 +20,8 @@ impl Solution {
             if target == n.val {
                 return true;
             }
-            if (
-                n.left.is_some() && Self::get_path(n.left.clone(), path, target)
-            ) || 
-            (
-                n.right.is_some() && Self::get_path(n.right.clone(), path, target)
-            )
+            if (n.left.is_some() && Self::get_path(n.left.clone(), path, target))
+                || (n.right.is_some() && Self::get_path(n.right.clone(), path, target))
             {
                 return true;
             }
@@ -50,8 +46,8 @@ impl Solution {
                     if val_f == val_s {
                         answer = Some(rc_f);
                     }
-                },
-                _ => break
+                }
+                _ => break,
             }
         }
         answer

@@ -2,14 +2,9 @@ use std::collections::HashMap;
 
 struct Solution;
 
-
 impl Solution {
     pub fn is_valid(s: String) -> bool {
-        let hmap = HashMap::from([
-            (')', '('),
-            (']', '['),
-            ('}', '{')
-        ]);
+        let hmap = HashMap::from([(')', '('), (']', '['), ('}', '{')]);
         let mut stack = vec![];
         for char in s.chars() {
             let open_bracket = hmap.get(&char);
@@ -19,7 +14,7 @@ impl Solution {
                 let stack_open = stack.pop();
                 if stack_open.is_none() {
                     return false;
-                } 
+                }
                 if *open_bracket.unwrap() != stack_open.unwrap() {
                     return false;
                 }
@@ -28,7 +23,6 @@ impl Solution {
         stack.is_empty()
     }
 }
-
 
 #[cfg(test)]
 mod tests {

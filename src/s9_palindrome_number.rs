@@ -16,7 +16,7 @@ impl Solution {
         }
         let count = Self::digit_count(x);
         if count == 1 {
-            return true
+            return true;
         }
         let start = x;
         let mut new = 0;
