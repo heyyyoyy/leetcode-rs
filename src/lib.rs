@@ -18,3 +18,4 @@ mod s409_longest_palindrome;
 mod s704_binary_search;
 mod s733_flood_fill;
 mod s9_palindrome_number;
+mod s14_longest_common_prefix;
