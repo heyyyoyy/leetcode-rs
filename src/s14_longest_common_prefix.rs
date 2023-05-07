@@ -15,6 +15,18 @@ impl Solution {
         }
         s
     }
+
+    pub fn longest_common_prefix_reduce(strs: Vec<String>) -> String {
+        strs.into_iter()
+            .reduce(|acc, cur| {
+                acc.chars()
+                    .zip(cur.chars())
+                    .take_while(|(f, s)| f == s)
+                    .map(|(f, _)| f)
+                    .collect()
+            })
+            .unwrap()
+    }
 }
 
 #[cfg(test)]
@@ -33,6 +45,26 @@ mod tests {
         );
         assert_eq!(
             Solution::longest_common_prefix(vec![
+                "dog".to_owned(),
+                "racecar".to_owned(),
+                "car".to_owned()
+            ]),
+            ""
+        );
+    }
+
+    #[test]
+    fn test_longest_common_prefix_reduce() {
+        assert_eq!(
+            Solution::longest_common_prefix_reduce(vec![
+                "flower".to_owned(),
+                "flow".to_owned(),
+                "flight".to_owned()
+            ]),
+            "fl"
+        );
+        assert_eq!(
+            Solution::longest_common_prefix_reduce(vec![
                 "dog".to_owned(),
                 "racecar".to_owned(),
                 "car".to_owned()
