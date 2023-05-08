@@ -19,3 +19,4 @@ mod s704_binary_search;
 mod s733_flood_fill;
 mod s9_palindrome_number;
 mod s14_longest_common_prefix;
+mod s1572_matrix_diagonal_sum;
