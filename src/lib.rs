@@ -24,3 +24,4 @@ mod s19_remove_nth_node_from_end_list;
 mod s26_remove_duplicates_from_sorted_array;
 mod s27_remove_element;
 mod s58_length_of_last_word;
+mod s83_remove_duplicates_from_sorted_list;
