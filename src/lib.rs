@@ -27,3 +27,4 @@ mod s58_length_of_last_word;
 mod s83_remove_duplicates_from_sorted_list;
 mod s136_single_number;
 mod s66_plus_one;
+mod s111_minimum_depth_of_binary_tree;
