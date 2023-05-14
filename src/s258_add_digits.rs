@@ -5,7 +5,7 @@ impl Solution {
         match num {
             0 => 0,
             x if x % 9 == 0 => 9,
-            x => x % 9
+            x => x % 9,
         }
     }
 }
