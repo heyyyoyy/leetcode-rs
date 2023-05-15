@@ -35,3 +35,4 @@ mod s144_binary_tree_preorder_traversal;
 mod s145_binary_tree_postorder_traversal;
 mod s217_contains_duplicate;
 mod s258_add_digits;
+mod s101_symmetric_tree;
