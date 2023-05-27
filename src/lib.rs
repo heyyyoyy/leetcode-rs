@@ -40,3 +40,4 @@ mod s94_binary_tree_inorder_traversal;
 mod s543_diameter_of_binary_tree;
 mod s283_move_zeroes;
 mod s69_sqrt;
+mod s200_number_of_islands;
